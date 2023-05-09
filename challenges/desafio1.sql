@@ -68,20 +68,20 @@ INSERT INTO cancoes (id_cancao, nome, duracao) VALUES
 ('10', 'Feeling Good', '100');
 
 CREATE TABLE IF NOT EXISTS `planos` (
-  `id_planos` INT NOT NULL,
+  `id_planos` INT NOT NULL AUTO_INCREMENT,
   `tipo` VARCHAR(45) NOT NULL,
-  `valor` VARCHAR(45) NULL,
+  `valor` DECIMAL(3, 2),
   PRIMARY KEY (`id_planos`)
 ) ENGINE = InnoDB;
 
-INSERT INTO planos (id_planos, tipo, valor) VALUES
-('1', 'gratuito', '0'),
-('2', 'familiar', '7,99'),
-('3', 'universitário', '5,99'),
-('4', 'pessoal', '6,99');
+INSERT INTO planos (tipo, valor) VALUES
+('gratuito', 0),
+('familiar', 7.99),
+('universitário', 5.99),
+('pessoal', 6.99);
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id_usuario` INT,
+  `id_usuario` INT AUTO_INCREMENT,
   `nome` VARCHAR(45),
   `idade` VARCHAR(45),
   `data_assinatura` VARCHAR(45),
@@ -96,17 +96,17 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
     ON UPDATE CASCADE
 ) ENGINE = InnoDB;
 
-INSERT INTO usuarios (id_usuario, nome, idade, data_assinatura) VALUES
+INSERT INTO usuarios (planos_id_planos, nome, idade, data_assinatura) VALUES
 ('1', 'Barbara Liskov', '82', '2019-10-20'),
-('2', 'Robert Cecil Martin', '58', '2017-01-06'),
-('3', 'Ada Lovelace', '37', '2017-12-30'),
-('4', 'Martin Fowler', '46', '2017-01-17'),
-('5', 'Sandi Metz', '58', '2018-04-29'),
-('6', 'Paulo Freire', '19', '2018-02-14'),
-('7', 'Bell Hooks', '26', '2018-01-05'),
-('8', 'Christopher Alexander', '85', '2019-06-05'),
-('9', 'Judith Butler', '45', '2020-05-13'),
-('10', 'Jorge Amado', '58', '2017-02-17');
+('1', 'Robert Cecil Martin', '58', '2017-01-06'),
+('2', 'Ada Lovelace', '37', '2017-12-30'),
+('2', 'Martin Fowler', '46', '2017-01-17'),
+('2', 'Sandi Metz', '58', '2018-04-29'),
+('3', 'Paulo Freire', '19', '2018-02-14'),
+('3', 'Bell Hooks', '26', '2018-01-05'),
+('4', 'Christopher Alexander', '85', '2019-06-05'),
+('4', 'Judith Butler', '45', '2020-05-13'),
+('4', 'Jorge Amado', '58', '2017-02-17');
 
 
 CREATE TABLE IF NOT EXISTS `historico` (
