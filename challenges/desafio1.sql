@@ -20,7 +20,7 @@ INSERT INTO artista (id_artista, nome) VALUES
 
 
 CREATE TABLE IF NOT EXISTS `album` (
-  `id_album` INT NOT NULL,
+  `id_album` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(50) NOT NULL,
   `ano_de_lancamento` VARCHAR(45) NULL,
   `artista_id_artista` INT,
@@ -32,15 +32,15 @@ CREATE TABLE IF NOT EXISTS `album` (
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
-INSERT INTO album (id_album, nome, ano_de_lancamento) VALUES
+INSERT INTO album (artista_id_artista, nome, ano_de_lancamento) VALUES
 ('1', 'Renaissance', '2022'),
 ('2', 'Jazz', '1978'),
-('3', 'Hot Space', '1982'),
-('4', 'Falso Brilhante', '1998'),
-('5', 'Vento de Maio', '2001'),
-('6', 'QVVJFA?', '2003'),
-('7', 'Somewhere Far Beyond', '2007'),
-('8', 'I Put A Spell On You', '2012');
+('2', 'Hot Space', '1982'),
+('3', 'Falso Brilhante', '1998'),
+('3', 'Vento de Maio', '2001'),
+('4', 'QVVJFA?', '2003'),
+('5', 'Somewhere Far Beyond', '2007'),
+('6', 'I Put A Spell On You', '2012');
 
 CREATE TABLE IF NOT EXISTS `cancoes` (
   `id_cancao` INT NOT NULL,
@@ -171,8 +171,6 @@ INSERT INTO seguindo(artista_id_artista, usuarios_id_usuario) VALUES
 (6, 5), 
 (6, 6), 
 (6, 7);
-
-
 
 
 
